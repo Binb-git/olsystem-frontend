@@ -1,7 +1,7 @@
-# lms-vue 
+# ol-res 
 
 # 后端地址
-https://github.com/njustmengfanyu/LibraryManagementSystem
+https://github.com/Binb-git/olsystem-backend.git
 
 ## IDEA 2020.2.1开发
 
