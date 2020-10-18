@@ -9,7 +9,7 @@
                 </el-breadcrumb>
             </el-row>
             <a-button class="editable-add-btn" @click="addNode">
-                添加图书信息
+                添加菜单信息
             </a-button>
             <span style="margin-right: 24px"></span>
             <a-button type="primary" :disabled="!hasSelected" :loading="loading" @click="start">
@@ -118,83 +118,83 @@
             </template>
         </a-table>
 
-        <el-dialog
-                title="修改图书"
-                :visible.sync="dialogFormVisible"
-                :before-close="handleClose"
-                @close="clear">
-            <el-form :model="form" style="text-align: left" ref="form" :rules="editrules">
-                <el-form-item label="id" :label-width="formLabelWidth" prop="id">
-                    <el-input v-model="form.id" autocomplete="off" :placeholder="dialogForm_id"
-                              :disabled="true"></el-input>
-                </el-form-item>
-                <el-form-item label="书名" :label-width="formLabelWidth" prop="bookname">
-                    <el-input v-model="form.bookname" autocomplete="off" :placeholder="dialogForm_bookname"></el-input>
-                </el-form-item>
-                <el-form-item label="作者" :label-width="formLabelWidth" prop="author">
-                    <el-input v-model="form.author" autocomplete="off" :placeholder="dialogForm_author"></el-input>
-                </el-form-item>
-                <el-form-item label="出版日期" :label-width="formLabelWidth" prop="date">
-                    <el-date-picker
-                            v-model="form.date"
-                            type="date"
-                            placeholder="选择日期"
-                            format="yyyy 年 MM 月 dd 日"
-                            value-format="yyyy-MM-dd">
-                    </el-date-picker>
-                </el-form-item>
-                <el-form-item label="出版社" :label-width="formLabelWidth" prop="press">
-                    <el-input v-model="form.press" autocomplete="off" :placeholder="dialogForm_press"></el-input>
-                </el-form-item>
-                <el-form-item label="封面" :label-width="formLabelWidth" prop="cover">
-                    <el-input v-model="form.cover" autocomplete="off" placeholder="图片 URL"></el-input>
-                    <img-upload @onUpload="uploadImg" ref="imgUpload" :placeholder="dialogForm_cover"></img-upload>
-                </el-form-item>
-                <el-form-item label="简介" :label-width="formLabelWidth" prop="abs">
-                    <el-input type="textarea" v-model="form.abs" maxlength="200" show-word-limit autocomplete="off"
-                              :placeholder="dialogForm_abs"></el-input>
-                </el-form-item>
-                <el-form-item label="分类" :label-width="formLabelWidth" prop="cid">
-                    <el-select v-model="form.category.id" placeholder="请选择分类">
-                        <el-option label="计算机" value="1"></el-option>
-                        <el-option label="数学" value="2"></el-option>
-                        <el-option label="物理" value="3"></el-option>
-                        <el-option label="化学" value="4"></el-option>
-                        <el-option label="文学" value="5"></el-option>
-                        <el-option label="科幻" value="6"></el-option>
-                    </el-select>
-                </el-form-item>
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogFormVisible = false;resetForm('form')">取 消</el-button>
-                <el-button type="primary" @click="onSubmit('form')">确 定</el-button>
-            </div>
-        </el-dialog>
+<!--        <el-dialog-->
+<!--                title="修改图书"-->
+<!--                :visible.sync="dialogFormVisible"-->
+<!--                :before-close="handleClose"-->
+<!--                @close="clear">-->
+<!--            <el-form :model="form" style="text-align: left" ref="form" :rules="editrules">-->
+<!--                <el-form-item label="id" :label-width="formLabelWidth" prop="id">-->
+<!--                    <el-input v-model="form.id" autocomplete="off" :placeholder="dialogForm_id"-->
+<!--                              :disabled="true"></el-input>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="菜名" :label-width="formLabelWidth" prop="bookname">-->
+<!--                    <el-input v-model="form.bookname" autocomplete="off" :placeholder="dialogForm_bookname"></el-input>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="价格" :label-width="formLabelWidth" prop="author">-->
+<!--                    <el-input v-model="form.author" autocomplete="off" :placeholder="dialogForm_author"></el-input>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="出版日期" :label-width="formLabelWidth" prop="date">-->
+<!--                    <el-date-picker-->
+<!--                            v-model="form.date"-->
+<!--                            type="date"-->
+<!--                            placeholder="选择日期"-->
+<!--                            format="yyyy 年 MM 月 dd 日"-->
+<!--                            value-format="yyyy-MM-dd">-->
+<!--                    </el-date-picker>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="出版社" :label-width="formLabelWidth" prop="press">-->
+<!--                    <el-input v-model="form.press" autocomplete="off" :placeholder="dialogForm_press"></el-input>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="封面" :label-width="formLabelWidth" prop="cover">-->
+<!--                    <el-input v-model="form.cover" autocomplete="off" placeholder="图片 URL"></el-input>-->
+<!--                    <img-upload @onUpload="uploadImg" ref="imgUpload" :placeholder="dialogForm_cover"></img-upload>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="简介" :label-width="formLabelWidth" prop="abs">-->
+<!--                    <el-input type="textarea" v-model="form.abs" maxlength="200" show-word-limit autocomplete="off"-->
+<!--                              :placeholder="dialogForm_abs"></el-input>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="分类" :label-width="formLabelWidth" prop="cid">-->
+<!--                    <el-select v-model="form.category.id" placeholder="请选择分类">-->
+<!--                        <el-option label="计算机" value="1"></el-option>-->
+<!--                        <el-option label="数学" value="2"></el-option>-->
+<!--                        <el-option label="物理" value="3"></el-option>-->
+<!--                        <el-option label="化学" value="4"></el-option>-->
+<!--                        <el-option label="文学" value="5"></el-option>-->
+<!--                        <el-option label="科幻" value="6"></el-option>-->
+<!--                    </el-select>-->
+<!--                </el-form-item>-->
+<!--            </el-form>-->
+<!--            <div slot="footer" class="dialog-footer">-->
+<!--                <el-button @click="dialogFormVisible = false;resetForm('form')">取 消</el-button>-->
+<!--                <el-button type="primary" @click="onSubmit('form')">确 定</el-button>-->
+<!--            </div>-->
+<!--        </el-dialog>-->
 
         <el-dialog
-                title="添加图书"
+                title="添加菜品"
                 :visible.sync="dialogFormVisible_add"
                 :before-close="handleClose"
                 @close="clear">
             <el-form :model="form" style="text-align: left" ref="form" :rules="addrules">
-                <el-form-item label="书名" :label-width="formLabelWidth" prop="bookname">
-                    <el-input v-model="form.bookname" autocomplete="off" placeholder="不加《》"></el-input>
+                <el-form-item label="菜名" :label-width="formLabelWidth" prop="bookname">
+                    <el-input v-model="form.bookname" autocomplete="off" ></el-input>
                 </el-form-item>
-                <el-form-item label="作者" :label-width="formLabelWidth" prop="author">
-                    <el-input v-model="form.author" autocomplete="off"></el-input>
+                <el-form-item label="价格" :label-width="formLabelWidth" prop="price">
+                    <el-input v-model="form.price" autocomplete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="出版日期" :label-width="formLabelWidth" prop="date">
-                    <el-date-picker
-                            v-model="form.date"
-                            type="date"
-                            placeholder="选择日期"
-                            format="yyyy 年 MM 月 dd 日"
-                            value-format="yyyy-MM-dd">
-                    </el-date-picker>
-                </el-form-item>
-                <el-form-item label="出版社" :label-width="formLabelWidth" prop="press">
-                    <el-input v-model="form.press" autocomplete="off"></el-input>
-                </el-form-item>
+<!--                <el-form-item label="出版日期" :label-width="formLabelWidth" prop="date">-->
+<!--                    <el-date-picker-->
+<!--                            v-model="form.date"-->
+<!--                            type="date"-->
+<!--                            placeholder="选择日期"-->
+<!--                            format="yyyy 年 MM 月 dd 日"-->
+<!--                            value-format="yyyy-MM-dd">-->
+<!--                    </el-date-picker>-->
+<!--                </el-form-item>-->
+<!--                <el-form-item label="出版社" :label-width="formLabelWidth" prop="press">-->
+<!--                    <el-input v-model="form.press" autocomplete="off"></el-input>-->
+<!--                </el-form-item>-->
                 <el-form-item label="封面" :label-width="formLabelWidth" prop="cover">
                     <el-input v-model="form.cover" autocomplete="off" placeholder="图片 URL"></el-input>
                     <img-upload @onUpload="uploadImg" ref="imgUpload"></img-upload>
@@ -242,7 +242,7 @@
             return {
                 addrules: {
                     // bookname: [{required: true, message: '书名不能为空', trigger: 'change'}],
-                    // author: [{required: true, message: '作者不能为空', trigger: 'change'}],
+                    // price: [{required: true, message: '价格不能为空', trigger: 'change'}],
                     // date: [{required: true, message: '出版日期不能为空', trigger: 'change'}],
                     // press: [{required: true, message: '出版社不能为空', trigger: 'change'}],
                     // cover: [{required: true, message: '封面不能为空', trigger: 'change'},],
@@ -251,7 +251,7 @@
                 },
                 editrules: {
                     // bookname: [{required: true, message: '书名不能为空', trigger: 'change'}],
-                    // author: [{required: true, message: '作者不能为空', trigger: 'change'}],
+                    // price: [{required: true, message: '价格不能为空', trigger: 'change'}],
                     // date: [{required: true, message: '出版日期不能为空', trigger: 'change'}],
                     // press: [{required: true, message: '出版社不能为空', trigger: 'change'}],
                     // cover: [{required: true, message: '封面不能为空', trigger: 'change'},],
@@ -263,7 +263,7 @@
                 dialogForm_id: 0,
                 dialogForm_cover: '',
                 dialogForm_bookname: '',
-                dialogForm_author: '',
+                dialogForm_price: '',
                 dialogForm_date: '',
                 dialogForm_press: '',
                 dialogForm_abs: '',
@@ -271,7 +271,7 @@
                 form: {
                     id: '',
                     bookname: '',
-                    author: '',
+                    price: '',
                     date: '',
                     press: '',
                     cover: '',
@@ -486,7 +486,7 @@
                 this.form = {
                     id: '',
                     bookname: '',
-                    author: '',
+                    price: '',
                     date: '',
                     press: '',
                     cover: '',
@@ -507,7 +507,7 @@
                                 id: this.form.id,
                                 cover: this.form.cover,
                                 bookname: this.form.bookname,
-                                author: this.form.author,
+                                price: this.form.price,
                                 date: this.form.date,
                                 press: this.form.press,
                                 abs: this.form.abs,
@@ -533,7 +533,7 @@
                 this.form = {
                     id: '',
                     bookname: '',
-                    author: '',
+                    price: '',
                     date: '',
                     press: '',
                     cover: '',
@@ -554,7 +554,7 @@
                                 id: this.dialogForm_id,
                                 cover: this.form.cover,
                                 bookname: this.form.bookname,
-                                author: this.form.author,
+                                price: this.form.price,
                                 date: this.form.date,
                                 press: this.form.press,
                                 abs: this.form.abs,
@@ -722,7 +722,7 @@
                 // this.dialogFormVisible = true
                 // this.dialogForm_id = item.id
                 // this.dialogForm_bookname = item.bookname
-                // this.dialogForm_author = item.author
+                // this.dialogForm_price = item.price
                 // this.dialogForm_date = item.date
                 // this.dialogForm_press = item.press
                 // this.dialogForm_cover = item.cover
