@@ -102,7 +102,7 @@ export default {
         // },
         deleteWantedList(id) {
             let _this = this;
-            MessageBox.confirm('是否将此书移出收藏夹?', '提示', {
+            MessageBox.confirm('是否删除该订单?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'

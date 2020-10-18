@@ -10,27 +10,27 @@
         </el-menu-item>
         <el-menu-item index="1">
             <i class="el-icon-menu"></i>
-            <span slot="title">计算机</span>
+            <span slot="title">主食</span>
         </el-menu-item>
         <el-menu-item index="2">
             <i class="el-icon-menu"></i>
-            <span slot="title">数学</span>
+            <span slot="title">快餐</span>
         </el-menu-item>
         <el-menu-item index="3">
             <i class="el-icon-menu"></i>
-            <span slot="title">物理</span>
+            <span slot="title">饮品</span>
         </el-menu-item>
         <el-menu-item index="4">
             <i class="el-icon-menu"></i>
-            <span slot="title">化学</span>
+            <span slot="title">甜点</span>
         </el-menu-item>
         <el-menu-item index="5">
             <i class="el-icon-menu"></i>
-            <span slot="title">文学</span>
+            <span slot="title">套餐</span>
         </el-menu-item>
         <el-menu-item index="6">
             <i class="el-icon-menu"></i>
-            <span slot="title">科幻</span>
+            <span slot="title">小吃</span>
         </el-menu-item>
     </el-menu>
 </template>

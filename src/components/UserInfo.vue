@@ -3,7 +3,7 @@
         <el-card style="width: 500px;margin: 0 auto;position: relative;top: 50%;background-color: #f0f6fc">
             <el-form v-model="form" style="text-align: left" ref="dataForm">
                 <el-form-item label="用户名" :label-width="formLabelWidth" prop="username">
-                    <el-input v-model="form.username" autocomplete="off" :placeholder="dialogForm_username" readonly></el-input>
+                    <el-input v-model="form.username" autocomplete="off" :placeholder="dialogForm_username" ></el-input>
                 </el-form-item>
                 <el-form-item label="真实姓名" :label-width="formLabelWidth" prop="name">
                     <el-input v-model="form.name" autocomplete="off" :placeholder="dialogForm_name" readonly></el-input>

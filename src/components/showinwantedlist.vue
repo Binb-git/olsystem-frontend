@@ -10,22 +10,32 @@
                 <el-col :span="12" style="margin-left: 75px">
                     <el-card :body-style="{ padding: '0px' }" style="height: 460px;">
                         <p class="ph1">
-                            《{{ book.bookname }}》
+                            {{ book.bookname }}
                         </p>
+
                         <p class="ph2">
                             简介 ： {{ book.abs }}
                         </p>
                         <p class="ph3">
-                            作者 ： {{ book.author }}
+                            价格 ： {{ book.price }}
                         </p>
                         <p class="ph4">
                             类别 ： {{ book.category.name }}
                         </p>
                         <p class="ph5">
-                            出版社 ： {{ book.press }}
+                            用户名 ： {{un}}
                         </p>
+                        <p class="ph7">
+                            电话号码: {{form.phone}}
+                        </p>
+                        <p class="ph6">
+                            配送地址 ： {{ user_book.adress }}
+                        </p>
+<!--                        <el-form ref="form" :model="form" label-width="80px">-->
+<!--                            <el-form-item label="配送地址">-->
+<!--                                <el-input v-model="form.adress"></el-input>-->
                         <div style="padding-top: 15px; ">
-                            <span style="width:500px; font-size: 28px">信息概览</span>
+                            <span style="width:500px; font-size: 28px">我的订单</span>
                             <div class="bottom clearfix">
                                 <el-button type="info" disabled class="button"
                                            style="height: 35px;width: 180px" @click="wantedlist(book.id)">已经在收藏夹中了
@@ -43,7 +53,7 @@
 </template>
 
 <script>
-import NavMenu from './common/NavMenu'
+
 import {MessageBox} from 'element-ui'
 import {Message} from 'element-ui'
 
@@ -53,28 +63,57 @@ export default {
     data() {
         return {
             book: {},
-            currentDate: new Date()
+            user_book:{},
+            currentDate: new Date(),
+            un: JSON.parse(window.localStorage.getItem('username' || '[]')),
+            form: {
+
+            },
         }
     },
     mounted() {
         this.getCover()
+        this.getAdress()
+        this.query()
     },
     methods: {
+        query() {
+            let _this = this
+            this.$axios.post('userinfo', {username:_this.$store.state.username}).then(
+                resp => {
+                    if (resp.data.code === 200) {
+                        this.form = resp.data.data
+                    }
+                }
+            )
+        },
+        getAdress() {
+            this.bid = this.$route.query.id
+            let _this = this;
+            this.$axios.post('/getadressbybid', {
+                bid: this.bid,
+                username: JSON.parse(window.localStorage.getItem('username' || '[]'))
+            }).then(resp => {
+                if (resp && resp.status === 200) {
+                    console.log("ad" + resp.data.data)
+                    _this.user_book = resp.data.data
+                }
+            })
+        },
+
         getCover() {
             this.id = this.$route.query.id
             let _this = this;
-            console.log(this.id)
             this.$axios.post('/getbookbybid', {
                 id: this.id
             }).then(resp => {
                 if (resp && resp.status === 200) {
-                    console.log(resp.data.data)
                     _this.book = resp.data.data
                 }
             })
         },
         wantedlist(id) {
-            MessageBox.confirm('确定要添加到收藏夹中吗?', '提示', {
+            MessageBox.confirm('确定要添加到订单中吗?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
@@ -113,7 +152,7 @@ export default {
 }
 
 .ph2 {
-    height: 150px;
+    height: 40px;
     text-indent: 2em;
     text-align: justify;
     margin-left: 15px;
@@ -132,9 +171,18 @@ export default {
     margin-left: 15px;
     text-align: left;
 }
-
 .ph5 {
-    height: 15px;
+    height: 35px;
+    margin-left: 15px;
+    text-align: left;
+}
+.ph6 {
+    height: 35px;
+    margin-left: 15px;
+    text-align: left;
+}
+.ph7 {
+    height: 35px;
     margin-left: 15px;
     text-align: left;
 }

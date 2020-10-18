@@ -1,19 +1,19 @@
 <template>
     <div class="ap">
-        <div id="mission"><p class="mission">使命</p>
+        <div id="mission"><p class="mission">好饿啊！！！</p>
             <p class="desc">
-                Inspire creativity, enrich life.
+                又到饭点了！
             </p>
         </div>
         <a-carousel autoplay>
-            <div><h3>做最懂你的最安全的书库</h3></div>
-            <div><h3>项目后端地址:</h3></div>
-            <div>
-                <h3>
-                    https://github.com/njustmengfanyu/LibraryManagementSystem
-                </h3>
-            </div>
-            <div><h3>项目前端地址:https://github.com/njustmengfanyu/lms-vue</h3></div>
+            <div><h3>欢迎光临 今天想吃点什么</h3></div>
+<!--            <div><h3>项目后端地址:</h3></div>-->
+<!--            <div>-->
+<!--                <h3>-->
+<!--                    https://github.com/njustmengfanyu/LibraryManagementSystem-->
+<!--                </h3>-->
+<!--            </div>-->
+<!--            <div><h3>项目前端地址:https://github.com/njustmengfanyu/lms-vue</h3></div>-->
         </a-carousel>
     </div>
 </template>

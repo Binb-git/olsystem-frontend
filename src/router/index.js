@@ -50,8 +50,6 @@ const routes = [
                     requireAuth: true
                 }
             },
-
-
             {
                 path: '/userinfo',
                 name: 'userinfo',

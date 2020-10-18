@@ -94,14 +94,15 @@ export default {
             })
         },
         wantedlist(id) {
-            MessageBox.confirm('确定要添加到收藏夹中吗?', '提示', {
+            MessageBox.confirm('确定要添加到订单中吗?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
                 this.$axios.post('/addwantedlist', {
                     bid: id,
-                    username: JSON.parse(window.localStorage.getItem('username' || '[]'))
+                    username: JSON.parse(window.localStorage.getItem('username' || '[]')),
+
                 }).then(resp => {
                     if (resp && resp.data.code === 200) {
                         Message.success("添加成功")
@@ -116,7 +117,7 @@ export default {
         },
         deleteBook(id) {
             let _this = this;
-            MessageBox.confirm('此操作将永久删除该书籍, 是否继续?', '提示', {
+            MessageBox.confirm('此操作将永久删除该菜品, 是否继续?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'

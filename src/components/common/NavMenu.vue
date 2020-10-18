@@ -35,7 +35,7 @@
             </el-button>
         </div>
 
-        <span style="position: absolute;padding-top: 10px;right: 47%;font-size: 28px;font-weight: bold">云中书</span>
+        <span style="position: absolute;padding-top: 10px;right: 47%;font-size: 28px;font-weight: bold">潘老板的网上餐馆</span>
     </el-menu>
 </template>
 
@@ -46,9 +46,9 @@ export default {
         return {
             navList: [
                 {name: '/index', navItem: '首页'},
-                {name: '/wantedlist', navItem: '收藏夹'},
-                {name: '/library', navItem: '图书馆'},
-                {name: '/userinfo', navItem: '个人中心'},
+                {name: '/wantedlist', navItem: '我的订单'},
+                {name: '/library', navItem: '我要点餐'},
+                {name: '/userinfo', navItem: '个人信息'},
                 {name: '/admin', navItem: '后台管理'}
             ],
             activeIndex: "",

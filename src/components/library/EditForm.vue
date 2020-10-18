@@ -3,14 +3,14 @@
         <!--        TODO: 添加修改分开-->
         <!--        <i class="el-icon-circle-plus-outline" @click="dialogFormVisible = true"></i>-->
         <el-dialog
-            title="添加/修改图书"
+            title="添加/修改菜品"
             :visible.sync="dialogFormVisible"
             @close="clear">
             <el-form v-model="form" style="text-align: left" ref="dataForm">
-                <el-form-item label="书名" :label-width="formLabelWidth" prop="bookname">
+                <el-form-item label="菜名" :label-width="formLabelWidth" prop="bookname">
                     <el-input v-model="form.bookname" autocomplete="off" placeholder="不加《》"></el-input>
                 </el-form-item>
-                <el-form-item label="作者" :label-width="formLabelWidth" prop="author">
+                <el-form-item label="价格" :label-width="formLabelWidth" prop="author">
                     <el-input v-model="form.author" autocomplete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="出版日期" :label-width="formLabelWidth" prop="date">
@@ -28,12 +28,12 @@
                 </el-form-item>
                 <el-form-item label="分类" :label-width="formLabelWidth" prop="cid">
                     <el-select v-model="form.category.id" placeholder="请选择分类">
-                        <el-option label="计算机" value="1"></el-option>
-                        <el-option label="数学" value="2"></el-option>
-                        <el-option label="物理" value="3"></el-option>
-                        <el-option label="化学" value="4"></el-option>
-                        <el-option label="文学" value="5"></el-option>
-                        <el-option label="科幻" value="6"></el-option>
+                        <el-option label="主食" value="1"></el-option>
+                        <el-option label="快餐" value="2"></el-option>
+                        <el-option label="饮品" value="3"></el-option>
+                        <el-option label="甜点" value="4"></el-option>
+                        <el-option label="套餐" value="5"></el-option>
+                        <el-option label="小吃" value="6"></el-option>
                     </el-select>
                 </el-form-item>
                 <!--                <el-form-item prop="id" style="height: 0">-->

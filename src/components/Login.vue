@@ -70,7 +70,7 @@ export default {
                         } else if (hour > 13 && hour <= 17) {
                             this.$msgbox.alert("登录成功，来杯下午茶吧，欢迎" + un)
                         } else if (hour > 17 && hour <= 24) {
-                            this.$msgbox.alert("登录成功，今天也要早点休息哦，欢迎" + un)
+                            this.$msgbox.alert("登录成功，晚上也要吃点好的，欢迎" + un)
                         }
                         _this.$store.commit('login', un)
                         let path = this.$route.query.redirect
